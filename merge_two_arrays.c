@@ -1,10 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef int ElementType;
-
 // A function that merges two sorted arrays
-void merge_two_arrays(int n1, int n2, ElementType *arr1, ElementType *arr2, ElementType *merged) {
+void merge_two_arrays(int n1, int n2, int *arr1, int *arr2, int *merged) {
     int i = 0, j = 0, k = 0; // Pointers to the first element of arr1, arr2 and merged
 
     // Both pointers are not out-of-bounds
@@ -28,9 +26,9 @@ void merge_two_arrays(int n1, int n2, ElementType *arr1, ElementType *arr2, Elem
 
 int main() {
     int i; // Loop counter
-    ElementType arr1[] = {1, 14, 19, 25}; // Input 1
-    ElementType arr2[] = {3, 5, 22, 26, 27}; // Input 2
-    ElementType *arr3 = (ElementType *)calloc(9, sizeof(ElementType)); // Output
+    int arr1[] = {1, 14, 19, 25}; // Input 1
+    int arr2[] = {3, 5, 22, 26, 27}; // Input 2
+    int *arr3 = (int *)calloc(9, sizeof(int)); // Output
     merge_two_arrays(4, 5, arr1, arr2, arr3); // Merging
     for (i = 0; i < 9; i++) {
         printf("%d ", arr3[i]);

@@ -1,10 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef int ElementType;
-
 // A function that merges two sorted arrays
-void merge_two_arrays(ElementType *arr, ElementType *tmp, int left, int mid, int right) {
+void merge_two_arrays(int *arr, int *tmp, int left, int mid, int right) {
     int i = 0; // Pointer to the first element of the left sub-array
 	int j = mid + 1; // Pointer to the first element of the right sub-array
 	int k = 0; // Pointer to the merged array
@@ -34,7 +32,7 @@ void merge_two_arrays(ElementType *arr, ElementType *tmp, int left, int mid, int
 }
 
 // A function that performs merge sort on an array
-void msort(ElementType *arr, ElementType *tmp, int left, int right) {
+void msort(int *arr, int *tmp, int left, int right) {
 	int mid;
 	
 	if (left < right) {
@@ -46,15 +44,15 @@ void msort(ElementType *arr, ElementType *tmp, int left, int right) {
 }
 
 // A wrapper function that performs merge sort on an array
-void merge_sort(int n, ElementType *arr) {
-    ElementType *tmp = (ElementType *)malloc(n * sizeof(ElementType)); // Temporary array
+void merge_sort(int n, int *arr) {
+    int *tmp = (int *)malloc(n * sizeof(int)); // Temporary array
 	msort(arr, tmp, 0, n-1);
 	free(tmp);
 }
 
 int main() {
     int i; // Loop variable
-    ElementType arr[] = {19, 25, 14, 1, 26, 22, 5, 27, 3};
+    int arr[] = {19, 25, 14, 1, 26, 22, 5, 27, 3};
     merge_sort(9, arr);
     for (i = 0; i < 9; i++) {
         printf("%d ", arr[i]);

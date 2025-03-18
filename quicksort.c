@@ -1,16 +1,14 @@
 #include <stdio.h>
 
-typedef int ElementType;
-
 // A helper function that swaps two elements in an array
-void swap(ElementType *arr, int a, int b) {
-    ElementType tmp = arr[a];
+void swap(int *arr, int a, int b) {
+    int tmp = arr[a];
     arr[a] = arr[b];
     arr[b] = tmp;
 }
 
 // A function that performs partition on an array
-int partition(ElementType *arr, int left, int right) {
+int partition(int *arr, int left, int right) {
     int pivot = arr[left]; // Key value of pivot (First element as pivot)
     int l = left; // Left pointer
     int r = right; // Right pointer
@@ -32,8 +30,8 @@ int partition(ElementType *arr, int left, int right) {
     return r; // New position of pivot
 }
 
-// A function that performs quick sort on an array
-void q_sort(ElementType *arr, int left, int right) {
+// A function that performs quicksort on an array
+void q_sort(int *arr, int left, int right) {
     int pivot; // Position of the pivot after partition
 
     if (left < right) { // Not the base case
@@ -47,14 +45,14 @@ void q_sort(ElementType *arr, int left, int right) {
 }
 
 // A wrapper function that performs quicksort on an array
-void quicksort(int n, ElementType *arr) {
+void quicksort(int n, int *arr) {
     q_sort(arr, 0, n-1);
 }
 
 int main() {
     int i; // Loop variable
 
-    ElementType arr[] = {19, 25, 14, 1, 26, 22, 5, 27, 3};    
+    int arr[] = {19, 25, 14, 1, 26, 22, 5, 27, 3};    
     quicksort(9, arr);
     for (i = 0; i < 9; i++) {
         printf("%d ", arr[i]);
